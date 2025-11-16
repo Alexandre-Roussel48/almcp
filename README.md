@@ -32,7 +32,7 @@
 
 ## Run with Docker
 ```bash
-docker run -it --rm ghcr.io/alexandre-roussel48/almcp:latest
+docker run -it --rm docker.io/roussalex/almcp:latest
 ```
 - The published image bundles the complete MCP server; no local Scala toolchain or JVM setup is required for basic usage.
 - The container exposes the STDIO MCP contract automatically, making it easy to integrate with editors or clients.
@@ -41,7 +41,7 @@ docker run -it --rm ghcr.io/alexandre-roussel48/almcp:latest
 1. Press `CTRL+SHIFT+P`.
 2. Run **MCP: Add Server**.
 3. Choose the **Docker image** option (VS Code will wrap the STDIO invocation automatically).
-4. Enter `ghcr.io/alexandre-roussel48/almcp:latest` as the image and keep the default STDIO settings unless you need extra flags (Use MCP_DEBUG=1 to debug requests and responses).
+4. Enter `roussalex/almcp:latest` as the image and keep the default STDIO settings unless you need extra flags (Use MCP_DEBUG=1 to debug requests and responses).
 5. Save the entry; the VS Code MCP client will now launch this containerized server directly whenever Copilot connects.
 
 ## Copilot Agent Mode is mandatory
