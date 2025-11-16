@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object AndTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "and",
-    description = "Bitwise AND operation on integers.",
-    parameters = NumericPairSchema.definition
+    description = Some("Bitwise AND operation on integers."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =

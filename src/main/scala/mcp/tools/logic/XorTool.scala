@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object XorTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "xor",
-    description = "Bitwise XOR operation on integers.",
-    parameters = NumericPairSchema.definition
+    description = Some("Bitwise XOR operation on integers."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =

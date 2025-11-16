@@ -1,13 +1,15 @@
 package mcp.tools.common
 
 import io.circe.{Json, JsonObject}
+import mcp.model.mcp.JsonSchema
 
 object NumericPairSchema:
-  val definition: JsonObject = JsonObject(
-    "type" -> Json.fromString("object"),
-    "properties" -> Json.obj(
-      "a" -> Json.obj("type" -> Json.fromString("number")),
-      "b" -> Json.obj("type" -> Json.fromString("number"))
+  val definition: JsonSchema = JsonSchema(
+    properties = Some(
+      JsonObject(
+        "a" -> Json.obj("type" -> Json.fromString("number")),
+        "b" -> Json.obj("type" -> Json.fromString("number"))
+      )
     ),
-    "required" -> Json.arr(Json.fromString("a"), Json.fromString("b"))
+    required = Some(List("a", "b"))
   )

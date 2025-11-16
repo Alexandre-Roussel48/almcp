@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object SubtractTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "subtract",
-    description = "Subtract two numbers.",
-    parameters = NumericPairSchema.definition
+    description = Some("Subtract two numbers."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =

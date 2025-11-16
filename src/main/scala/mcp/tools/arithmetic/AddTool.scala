@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object AddTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "add",
-    description = "Add two numbers together.",
-    parameters = NumericPairSchema.definition
+    description = Some("Add two numbers together."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =
