@@ -16,12 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
+      - uses: coursier/cache-action@v6
+      
+      - uses: coursier/setup-action@v1
         with:
-          distribution: temurin
-          java-version: '21'
-          cache: sbt
+          jvm: "temurin:21"
+          apps: sbt
 
       - name: Run tests
         run: sbt test
