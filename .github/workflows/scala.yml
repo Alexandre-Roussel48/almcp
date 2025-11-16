@@ -14,24 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '21'
-          cache: sbt
-
-      - name: Cache Coursier and Ivy
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/coursier
-            ~/.ivy2/cache
-          key: coursier-${{ runner.os }}-${{ hashFiles('**/*.sbt') }}-${{ hashFiles('**/project/*.scala') }}
-          restore-keys: |
-            coursier-${{ runner.os }}-
+      - uses: coursier/cache-action@v6
+      
+      - uses: coursier/setup-action@v1
 
       - name: Run tests
         run: sbt test
