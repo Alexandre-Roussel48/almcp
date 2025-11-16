@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object MultiplyTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "multiply",
-    description = "Multiply two numbers.",
-    parameters = NumericPairSchema.definition
+    description = Some("Multiply two numbers."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =

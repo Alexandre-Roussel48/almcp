@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object EqualsTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "equals",
-    description = "Logical equality operation.",
-    parameters = NumericPairSchema.definition
+    description = Some("Logical equality operation."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =

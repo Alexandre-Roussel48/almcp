@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object DivideTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "divide",
-    description = "Divide two numbers.",
-    parameters = NumericPairSchema.definition
+    description = Some("Divide two numbers."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =

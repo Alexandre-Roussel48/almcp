@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object GreaterThanTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "greaterThan",
-    description = "Logical greater than operation.",
-    parameters = NumericPairSchema.definition
+    description = Some("Logical greater than operation."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =

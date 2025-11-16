@@ -12,8 +12,8 @@ import mcp.tools.{Tool, ToolError}
 object LessThanTool extends Tool:
   val definition: ToolDefinition = ToolDefinition(
     name = "lessThan",
-    description = "Logical less than operation.",
-    parameters = NumericPairSchema.definition
+    description = Some("Logical less than operation."),
+    inputSchema = NumericPairSchema.definition
   )
 
   def execute(args: JsonObject): ZIO[Any, ToolError, Json] =
@@ -21,4 +21,3 @@ object LessThanTool extends Tool:
       .fromEither(args.asJson.as[BinaryArgs])
       .mapError(err => ToolError.InvalidArguments(s"Invalid arguments for lessThan: ${err.getMessage}"))
       .map(parsed => Json.fromBoolean(parsed.a < parsed.b))
-
