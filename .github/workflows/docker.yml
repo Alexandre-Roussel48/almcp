@@ -32,3 +32,4 @@ jobs:
           push: true
           tags: |
             docker.io/roussalex/almcp:${{ github.ref_name }}
+            docker.io/roussalex/almcp:latest
